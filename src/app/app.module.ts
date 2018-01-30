@@ -7,19 +7,36 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import { ChatPage } from '../pages/chat/chat';
+
+var config = {
+  apiKey: "AIzaSyAQgGfsnnZD8gCdY65RekoBNO8xNBpAeTA",
+  authDomain: "exampleproject-6358d.firebaseapp.com",
+  databaseURL: "https://exampleproject-6358d.firebaseio.com",
+  projectId: "exampleproject-6358d",
+  storageBucket: "exampleproject-6358d.appspot.com",
+  messagingSenderId: "850503492708"
+};
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ChatPage
   ],
   providers: [
     StatusBar,
